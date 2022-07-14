@@ -2,6 +2,7 @@ var Image = require('../models/schema.js');
 const ApiFeatures = require('../utils/apifeatures.js');
 
 exports.home = async (req,res)=>{
+    // console.log("aidufa");   
     const apiFeature = new ApiFeatures(Image.find(), req.query).searchImage();
     let images = await apiFeature.query;
     const perPageItem = 9;

@@ -7,7 +7,7 @@ class ApiFeatures {
     searchImage() {
         const keyword = this.queryStr.keyword ? {
             imgName: {
-                $regex: this.query.keyword,
+                $regex: this.queryStr.keyword,
                 $options: "i"
             }
         } : {}
