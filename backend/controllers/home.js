@@ -1,8 +1,12 @@
 var Image = require('../models/schema.js');
+const ApiFeatures = require('../utils/apifeatures.js');
 
 exports.home = async (req,res)=>{
-    let images = await Image.find();
-
+    const apiFeature = new ApiFeatures(Image.find(), req.query).searchImage();
+    let images = await apiFeature.query;
+    const perPageItem = 9;
+    apiFeature.pagination(perPageItem);
+    images = await apiFeature.query.clone();
     try{
         res.status(200).json({
             success:true,
