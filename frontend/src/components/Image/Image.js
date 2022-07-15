@@ -2,7 +2,6 @@ import React, { Fragment, useEffect } from "react";
 import { singleimageaction, clearerr, deleteimageaction } from "../../Redux/Actions/imageAction";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
