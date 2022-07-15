@@ -8,7 +8,7 @@ The project is hosted live on:
 - Technologies
 - Setup
 - Approach
-- Bugs and Problems
+- Ongoing bugs and fixes
 
 ## About the Project
 The project features an online image gallery, capable of storing and rendering images via URL. It can perform CRUD operations along with Pagination and Searching through keywords. Images can be added through a form, viewed, edited through a form and deleted as well. The project also features technologies like Redux for state management.
