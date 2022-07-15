@@ -40,4 +40,4 @@ For the frontend, the main technologies used were `React` and `Redux` for state 
 - The redux folder contains store, reducers, actions and constants for managing and fetching states throughout the frontend.
 
 ## Ongoing Bugs and fixes
-Currently there is an issue with the hosting of the project. The frontend and the backend have been hosted on separate servers which resulted to delay in updating the states, both in the frontend and backend. As a result, whenever we edit an image, the response is recieved by the backend immediately, but we have to refresh the page to see the changes on the frontend. One fix is to host both the frontend and backend on the same server to prevent this delay.
+`FIXED` Currently there is an issue with the hosting of the project. The frontend and the backend have been hosted on separate servers which resulted to delay in updating the states, both in the frontend and backend. As a result, whenever we edit an image, the response is recieved by the backend immediately, but we have to refresh the page to see the changes on the frontend. One fix is to host both the frontend and backend on the same server to prevent this delay.
