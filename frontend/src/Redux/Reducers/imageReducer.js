@@ -9,7 +9,10 @@ import {
   ADD_IMAGE_RESET,
   IMAGE_REQUEST,
   IMAGE_SUCCESS,
-  IMAGE_FAIL
+  IMAGE_FAIL,
+  EDIT_IMAGE_REQUEST,
+  EDIT_IMAGE_SUCCESS,
+  EDIT_IMAGE_FAIL
 } from "../Constants/imageConstant";
 
 export const showallimage = (state = { allimages: [] }, action) => {
@@ -23,6 +26,8 @@ export const showallimage = (state = { allimages: [] }, action) => {
       return {
         loading: false,
         allimages: action.payload.images,
+        perPageItem: action.payload.perPageItem,
+        filteredImageCount: action.payload.filteredImageCount
       };
     case SHOW_ALL_IMAGE_FAIL:
       return {
@@ -72,19 +77,45 @@ export const newProductReducer = (state = {}, action) => {
   }
 };
 
-export const showoneimage = (state = { allimages: {} }, action) => {
+export const showoneimage = (state = { image: {} }, action) => {
   switch (action.type) {
     case IMAGE_REQUEST:
       return {
         loading: true,
-        allimages: [],
+        image: {},
       };
     case IMAGE_SUCCESS:
       return {
         loading: false,
-        allimages: action.payload.images,
+        image: action.payload.image,
       };
     case IMAGE_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+    default:
+      return state;
+  }
+};
+
+export const editoneimage = (state = {}, action) => {
+  switch (action.type) {
+    case EDIT_IMAGE_REQUEST:
+      return {
+        loading: true
+      };
+    case EDIT_IMAGE_SUCCESS:
+      return {
+        loading: false,
+        success: action.payload.success,
+      };
+    case EDIT_IMAGE_FAIL:
       return {
         loading: false,
         error: action.payload,

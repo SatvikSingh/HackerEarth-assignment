@@ -1,11 +1,10 @@
-import {  useState, React } from "react";
+import { useState, React } from "react";
 import { addimageaction } from "../../Redux/Actions/imageAction";
-import {  useDispatch } from "react-redux";
-import './AddImageForm.css'
+import { useDispatch } from "react-redux";
+import "./AddImageForm.css";
 
 const AddImageForm = () => {
-
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [formdata, setformdata] = useState({
     imgName: "",
     imgDetails: "",
@@ -27,45 +26,55 @@ const dispatch = useDispatch();
   // function made to add new data to table
   const adddata = (e) => {
     e.preventDefault();
-    dispatch(addimageaction(formdata))
-    dispatch({type:"ADD_IMAGE_RESET"});
+    dispatch(addimageaction(formdata));
+    dispatch({ type: "ADD_IMAGE_RESET" });
     // call axios
     // resetting the state
     setformdata({
-        imgName: "",
-        imgDetails: "",
-        imgURL: "",
+      imgName: "",
+      imgDetails: "",
+      imgURL: "",
     });
   };
 
   return (
-    <div>
-      <form onSubmit={adddata}>
-        <input
-          className="adddata"
-          type="text"
-          name="imgName"
-          value={formdata.imgName}
-          placeholder="Enter Image Name "
-          onChange={changedata}
-        ></input>
-        <input
-          className="adddata"
-          type="text"
-          name="imgDetails"
-          value={formdata.imgDetails}
-          placeholder="Enter Image Details "
-          onChange={changedata}
-        ></input>
-        <input
-          className="adddata"
-          type="text"
-          name="imgURL"
-          value={formdata.imgURL}
-          placeholder="Enter Image URL "
-          onChange={changedata}
-        ></input>
-        <button type="submit">Add Data</button>
+    <div className="card-form">
+      <form className="signup" onSubmit={adddata}>
+        <div className="form-title">Add a new Image</div>
+        <div className="form-body">
+          <div className="row">
+            <input
+              type="text"
+              placeholder="Image Name*"
+              name="imgName"
+              value={formdata.imgName}
+              onChange={changedata}
+              autoComplete="off"
+            />
+            <input
+              type="text"
+              placeholder="Image URL*"
+              name="imgURL"
+              value={formdata.imgURL}
+              onChange={changedata}
+              autoComplete="off"
+            />
+          </div>
+          <div className="row">
+            <input
+              type="text"
+              placeholder="Image Details*"
+              name="imgDetails"
+              value={formdata.imgDetails}
+              onChange={changedata}
+              autoComplete="off"
+            />
+          </div>
+        </div>
+        <div className="rule"></div>
+        <div className="form-footer">
+          <button type="submit"><span style={{color: "white"}}>Add Data</span></button>
+        </div>
       </form>
     </div>
   );

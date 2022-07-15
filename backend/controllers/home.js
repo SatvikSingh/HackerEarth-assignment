@@ -5,13 +5,16 @@ exports.home = async (req,res)=>{
     // console.log("aidufa");   
     const apiFeature = new ApiFeatures(Image.find(), req.query).searchImage();
     let images = await apiFeature.query;
+    let filteredImageCount = images.length;
     const perPageItem = 9;
     apiFeature.pagination(perPageItem);
     images = await apiFeature.query.clone();
     try{
         res.status(200).json({
             success:true,
-            images
+            images,
+            perPageItem,
+            filteredImageCount
         })
     }catch(e){
         res.status(401).json(`Error ${e}`)
@@ -31,13 +34,24 @@ exports.addimg = async (req,res)=>{
     }
 }
 
+exports.showimg = async (req,res)=>{
+    try{
+        let image = await Image.findById(req.params.id);
+        res.status(200).json({
+            success:true,   
+            image
+        })
+    }catch(e){
+        res.status(401).json(`Error ${e}`)
+    }
+}
+
 exports.editimg = async (req,res)=>{
     try{
-        let image = await Image.findOne({id:req.params.id});
+        let image = await Image.findById(req.params.id);
         image.imgDetails = req.body.imgDetails;
         image.imgURL = req.body.imgURL;
         image.save();
-
         res.status(200).json({
             success:true,
             message: "Edited Image"
@@ -54,19 +68,6 @@ exports.deleteimg = async (req,res)=>{
         res.status(200).json({
             success:true,
             message: "Deleted Image"
-        })
-    }catch(e){
-        res.status(401).json(`Error ${e}`)
-    }
-}
-
-exports.showimg = async (req,res)=>{
-    try{
-        let image = await Image.findById(req.params.id);
-
-        res.status(200).json({
-            success:true,
-            image
         })
     }catch(e){
         res.status(401).json(`Error ${e}`)

@@ -1,11 +1,13 @@
 import {createStore, combineReducers, applyMiddleware} from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from 'redux-devtools-extension';
-import {showallimage, newProductReducer, showoneimage} from "./Reducers/imageReducer"
+import {showallimage, newProductReducer, showoneimage, editoneimage} from "./Reducers/imageReducer"
+
 const reducer = combineReducers({
   Image: showallimage,
   newImage: newProductReducer,
-  oneImage: showoneimage
+  oneImage: showoneimage,
+  editImage: editoneimage
 });
 
 let initialstate = {};
