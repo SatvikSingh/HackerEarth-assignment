@@ -19,7 +19,7 @@ For the frontend, the main technologies used were `React` and `Redux` for state 
 ## Setup
 - Download / Clone the repository on your system.
 - Open the frontend directory and run `npm install` to install all the required dependencies
-- Open the backend directory and run `npm intall` to install all the required dependencies
+- Open the backend directory and run `npm install` to install all the required dependencies
 - Navigate to the frontend and execute `npm start` to start the server, and do the same for the backend
 - The frontend should be hosted on `http://localhost:3000/` and the backend on `http://localhost:3601/`
 
