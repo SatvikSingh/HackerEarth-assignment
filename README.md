@@ -1,7 +1,7 @@
 # HackerEarth-assignment
 
 ## Demo-Link
-The project is hosted live on: 
+The project is hosted live on: [https://image-gallery-reactjs.herokuapp.com/](https://image-gallery-reactjs.herokuapp.com/)
 
 ## Table of Contents
 - About the project
